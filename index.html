@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セレコーデ（仮称）- 有名人スナップ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;background:#f5f5f5;color:#111}
+.wrap{max-width:480px;margin:0 auto;background:#fff;min-height:100vh}
+header{display:flex;align-items:center;gap:14px;padding:12px;border-bottom:1px solid #e6e6e6}
+.logo{font-size:19px;font-weight:900;white-space:nowrap;flex:none}
+.logo span{color:#a6192e}
+.gnav{display:flex;gap:10px;font-size:12px;white-space:nowrap;flex:1;min-width:0;overflow:hidden}
+.gnav a{color:#111;text-decoration:none}
+.burger{margin-left:auto;font-size:20px;background:none;border:none}
+section{padding:14px 12px;border-bottom:8px solid #f5f5f5}
+h1{font-size:22px;font-weight:900;margin-bottom:10px}
+h2{font-size:16px;font-weight:800;margin-bottom:10px}
+.searchrow{display:flex;gap:8px;margin-bottom:10px}
+.searchrow input{flex:1;padding:9px 12px;border:1px solid #ccc;border-radius:20px;font-size:13px}
+.searchrow a{font-size:12px;align-self:center;color:#111}
+.areas{display:flex;gap:6px;flex-wrap:wrap}
+.areas button{padding:7px 14px;font-size:12px;border:1px solid #ccc;background:#fff;border-radius:16px}
+.areas button.on{background:#111;color:#fff;border-color:#111}
+.shop-entry{margin-top:10px;font-size:12px}
+.shop-entry a{color:#a6192e;font-weight:700;text-decoration:none}
+/* snap grid: 例外B = 2列のまま寄り。写真が枠の大半、被写体が枠の高さの約9割 */
+.snaps{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.snap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 12%;display:block}
+.snap .tags{font-size:11px;color:#555;padding:6px 2px 10px;line-height:1.5}
+article.shopmod{border-top:1px solid #eee;padding-top:12px;margin-top:12px}
+article.shopmod:first-of-type{border-top:none;padding-top:0;margin-top:0}
+article.shopmod h3{font-size:15px;font-weight:800;line-height:1.5}
+article.shopmod .ex{font-size:12px;color:#666;margin:6px 0}
+article.shopmod .dt{font-size:11px;color:#999;margin-bottom:10px}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.prod{border:1px solid #eee;border-radius:6px;padding:8px}
+.prod .pn{font-size:12px;font-weight:700;line-height:1.4}
+.prod .pc{font-size:11px;color:#666;margin-top:4px;line-height:1.4}
+.prod .sample{font-size:10px;color:#a6192e;margin-top:4px}
+.rank{list-style:none;counter-reset:rk}
+.rank li{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
+.rank .no{background:#111;color:#fff;font-weight:800;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;flex:none}
+.rank img{width:44px;height:56px;object-fit:cover;object-position:center 12%;border-radius:4px}
+.arts{list-style:none}
+.arts li{padding:9px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
+.newsletter{background:#111;color:#fff;border-radius:8px;padding:16px}
+.newsletter p{font-size:12px;color:#ccc;margin:6px 0 12px}
+.newsletter .row{display:flex;gap:8px}
+.newsletter input{flex:1;padding:10px;border:none;border-radius:4px;font-size:13px}
+.newsletter button{padding:10px 16px;background:#a6192e;color:#fff;border:none;border-radius:4px;font-size:13px;font-weight:700}
+footer{background:#111;color:#bbb;padding:18px 12px;font-size:12px}
+footer h3{color:#fff;font-size:13px;margin:12px 0 6px}
+footer a{color:#bbb;text-decoration:none;margin-right:12px;line-height:2}
+footer .fine{margin-top:14px;font-size:11px;color:#777;line-height:1.7}
+.notice{font-size:11px;color:#a6192e;padding:8px 12px;background:#fdf2f4;border-bottom:1px solid #f3d7dc}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="notice">公開前の確認用サンプルです。人物はすべてAIモデル、名前・タグ・記事は仮の表示です。</div>
+
+<!-- 0 ヘッダー / グローバルナビ -->
+<header>
+  <div class="logo">セレ<span>コーデ</span></div>
+  <nav class="gnav"><a href="#">スナップ</a><a href="#">特集</a><a href="#">コーデ</a><a href="#">アイテム</a></nav>
+  <button class="burger">☰</button>
+</header>
+
+<!-- 1 ページ見出し + スナップ検索 -->
+<section>
+  <h1>有名人スナップ</h1>
+  <div class="searchrow"><input type="text" placeholder="スナップ検索"><a href="#">詳細検索</a></div>
+  <div class="areas"><button class="on">すべて</button><button>東京</button><button>大阪</button><button>名古屋</button><button>その他</button></div>
+  <div class="shop-entry">SHOPPING <a href="#shop">お買いモノ記事へ</a></div>
+</section>
+
+<!-- 2 スナップ グリッド (例外B: 2列・寄り・写真が大半) -->
+<section>
+  <div class="snaps">
+    <div class="snap"><img src="img/c7.jpg" alt="ロングコートのスナップ"><div class="tags"># ロングコート # 秋コーデ # 東京</div></div>
+    <div class="snap"><img src="img/c11.jpg" alt="ブラウスとスカートのスナップ"><div class="tags"># ブラウス # スカート # 昼コーデ</div></div>
+    <div class="snap"><img src="img/c2.jpg" alt="ロングドレスのスナップ"><div class="tags"># ロングドレス # 夜コーデ # パーティー</div></div>
+    <div class="snap"><img src="img/c5.jpg" alt="トレンチコートのスナップ"><div class="tags"># トレンチコート # 雨の日 # 通勤</div></div>
+    <div class="snap"><img src="img/c8.jpg" alt="ロングブーツのスナップ"><div class="tags"># ロングブーツ # ストリート # 黒</div></div>
+    <div class="snap"><img src="img/c1.jpg" alt="カフェニットのスナップ"><div class="tags"># ニット # カフェ # 休日</div></div>
+    <div class="snap"><img src="img/c3.jpg" alt="テーラードジャケットのスナップ"><div class="tags"># ジャケット # モード # スーツ</div></div>
+    <div class="snap"><img src="img/c10.jpg" alt="朝散歩コートのスナップ"><div class="tags"># コート # 朝 # ナチュラル</div></div>
+  </div>
+</section>
+
+<!-- 3 お買いモノ記事モジュール -->
+<section id="shop">
+  <h2>お買いモノ</h2>
+  <article class="shopmod">
+    <h3>【マイ定番】秋のロングコート、長く着られる一着の選び方</h3>
+    <p class="ex">季節の境目にまず羽織るのは、丈の長いコート。骨格別に似合う丈と素材を、スナップで見つけた着こなしから紹介します。</p>
+    <div class="dt">2026.11.02 Mon. - 19:00</div>
+    <div class="prods">
+      <div class="prod"><div class="pn">ロングコート（再現アイテム）</div><div class="pc">丈はふくらはぎ下が基準</div><div class="sample">サンプル表示</div></div>
+      <div class="prod"><div class="pn">ロングブーツ（再現アイテム）</div><div class="pc">筒は細すぎないものを</div><div class="sample">サンプル表示</div></div>
+      <div class="prod"><div class="pn">ミニバッグ（再現アイテム）</div><div class="pc">色はコートに寄せる</div><div class="sample">サンプル表示</div></div>
+    </div>
+  </article>
+  <article class="shopmod">
+    <h3>今から着られて長く活躍するデニム、ベーシックから個性派まで紹介</h3>
+    <p class="ex">昼は一枚で、冬本番にはコートの中に。着回しの軸になるデニムの形を、骨格タイプ別に整理しました。</p>
+    <div class="dt">2026.10.31 Sat. - 17:00</div>
+    <div class="prods">
+      <div class="prod"><div class="pn">ストレートデニム（再現アイテム）</div><div class="pc">股上は深めが万能</div><div class="sample">サンプル表示</div></div>
+      <div class="prod"><div class="pn">デニムジャケット（再現アイテム）</div><div class="pc">肩で選ぶと失敗が少ない</div><div class="sample">サンプル表示</div></div>
+      <div class="prod"><div class="pn">ワイドデニム（再現アイテム）</div><div class="pc">靴で丈を調整する</div><div class="sample">サンプル表示</div></div>
+    </div>
+  </article>
+</section>
+
+<!-- 4 スナップ ランキング -->
+<section>
+  <h2>スナップ ランキング</h2>
+  <ol class="rank">
+    <li><span class="no">1</span><img src="img/c7.jpg" alt="1位のスナップ">ロングコートの着こなし（東京）</li>
+    <li><span class="no">2</span><img src="img/c2.jpg" alt="2位のスナップ">夜のロングドレス（大阪）</li>
+    <li><span class="no">3</span><img src="img/c11.jpg" alt="3位のスナップ">昼のブラウス＋スカート（東京）</li>
+    <li><span class="no">4</span><img src="img/c1.jpg" alt="4位のスナップ">カフェのニット（名古屋）</li>
+    <li><span class="no">5</span><img src="img/c3.jpg" alt="5位のスナップ">モードなスーツ（東京）</li>
+    <li><span class="no">6</span><img src="img/c8.jpg" alt="6位のスナップ">ロングブーツのストリート（大阪）</li>
+  </ol>
+  <p style="font-size:11px;color:#999;margin-top:8px">7位〜12位はサンプルでは省略。順位は仮の表示です。</p>
+</section>
+
+<!-- 5 現在の人気記事 -->
+<section>
+  <h2>現在の人気記事</h2>
+  <ul class="arts">
+    <li>秋のロングコート、骨格別の正解まとめ</li>
+    <li>昼15度→夜8度、帰りは何を羽織る？</li>
+    <li>デニムの形で変わる印象、3タイプ比較</li>
+  </ul>
+</section>
+
+<!-- 6 ニュースレター -->
+<section>
+  <div class="newsletter">
+    <h2 style="color:#fff">NEWS LETTER ニュースレター</h2>
+    <p>新しいスナップと特集を、メールでお届けします。（受け口の形だけのサンプルです）</p>
+    <div class="row"><input type="email" placeholder="メールアドレス"><button>登録する</button></div>
+  </div>
+</section>
+
+<!-- 7 人気のお買いモノ記事 -->
+<section>
+  <h2>人気のお買いモノ記事</h2>
+  <ul class="arts">
+    <li>【マイ定番】秋のロングコート、長く着られる一着の選び方</li>
+    <li>今から着られて長く活躍するデニム特集</li>
+    <li>夜コーデの主役、ロングドレスの選び方</li>
+  </ul>
+</section>
+
+<!-- 8 公式SNS + フッター -->
+<footer>
+  <h3>公式SNSアカウント</h3>
+  <a href="#">Instagram</a><a href="#">Threads</a><a href="#">X</a><a href="#">TikTok</a>
+  <h3>このサイトについて</h3>
+  <a href="#">運営について</a><a href="#">利用規約</a><a href="#">プライバシーポリシー</a><a href="#">お問い合わせ</a>
+  <div class="fine">セレコーデ（仮称）は公開前のサンプルです。掲載の人物はすべてAIモデル（女性のみ）、実在の人物の写真は使っていません。タグ・順位・記事は仮の表示です。<br>© セレコーデ（仮称）</div>
+</footer>
+
+</div>
+</body>
+</html>
