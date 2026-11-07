@@ -45,6 +45,16 @@ article.shopmod .dt{font-size:11px;color:#999;margin-bottom:10px}
 .prod .pn{font-size:12px;font-weight:700;line-height:1.4}
 .prod .pc{font-size:11px;color:#666;margin-top:4px;line-height:1.4}
 .prod .sample{font-size:10px;color:#a6192e;margin-top:4px}
+.prbadge{display:inline-block;font-size:11px;font-weight:800;border:1px solid #111;padding:2px 8px;border-radius:3px;margin-bottom:8px}
+.prnote{font-size:11px;color:#666;margin-bottom:10px;line-height:1.6}
+.shop-photo img{width:100%;display:block}
+.shop-photo figcaption{font-size:11px;color:#666;padding:4px 2px}
+ul.breakdown{list-style:none;font-size:12px;line-height:1.8;margin:8px 0}
+ul.breakdown li{border-bottom:1px solid #eee;padding:2px 0}
+.afframe{border:1px solid #e8c87a;background:#fffdf4;border-radius:6px;padding:10px;margin-top:10px}
+.afframe .aftitle{font-size:12px;font-weight:800;margin-bottom:6px}
+.afframe .afnote{font-size:11px;color:#666;line-height:1.6;margin-top:8px}
+.afbtn{display:block;text-align:center;font-size:12px;font-weight:700;color:#999;border:1px dashed #ccc;border-radius:6px;padding:8px;margin-top:6px;text-decoration:none}
 .rank{list-style:none;counter-reset:rk}
 .rank li{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
 .rank .no{background:#111;color:#fff;font-weight:800;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;flex:none}
@@ -85,11 +95,11 @@ footer .fine{margin-top:14px;font-size:11px;color:#777;line-height:1.7}
 <!-- 2 スナップ グリッド (例外B: 2列・寄り・写真が大半) -->
 <section>
   <div class="snaps">
-    <div class="snap"><img src="img/snap-mia-v1.jpg" alt="銀座のツイードジャケットスナップ"><div class="tags"># ツイードジャケット # ミニスカート # 銀座</div></div>
-    <div class="snap"><img src="img/snap-b-v1.jpg" alt="渋谷の白シャツスナップ"><div class="tags"># 白シャツ # レザースカート # ロングブーツ</div></div>
+    <div class="snap"><a href="coord-1.html"><img src="img/snap-mia-v1.jpg" alt="銀座のツイードジャケットスナップ"></a><div class="tags"># ツイードジャケット # ミニスカート # 銀座</div></div>
+    <div class="snap"><a href="coord-3.html"><img src="img/snap-b-v1.jpg" alt="渋谷の白シャツスナップ"></a><div class="tags"># 白シャツ # レザースカート # ロングブーツ</div></div>
     <div class="snap"><img src="img/snap-c-v1.jpg" alt="代官山のニットスナップ"><div class="tags"># ニット # ワイドパンツ # スニーカー</div></div>
     <div class="snap"><img src="img/snap-d1-v1.jpg" alt="丸の内のロングコートスナップ"><div class="tags"># ロングコート # デニム # パンプス</div></div>
-    <div class="snap"><img src="img/snap-mia2-v1.jpg" alt="表参道のトレンチコートスナップ"><div class="tags"># トレンチコート # ワンピース # ブーツ</div></div>
+    <div class="snap"><a href="coord-2.html"><img src="img/snap-mia2-v1.jpg" alt="表参道のトレンチコートスナップ"></a><div class="tags"># トレンチコート # ワンピース # ブーツ</div></div>
     <div class="snap"><img src="img/snap-b2-v1.jpg" alt="原宿のブレザースナップ"><div class="tags"># ブレザー # プリーツスカート # ショートブーツ</div></div>
     <div class="snap"><img src="img/snap-b2a-v1.jpg" alt="新宿のロングコートスナップ"><div class="tags"># ロングコート # スキニー # ヒール</div></div>
     <div class="snap"><img src="img/snap-b2b-v1.jpg" alt="自由が丘のシャツワンピスナップ"><div class="tags"># シャツワンピ # ベルト # ロングブーツ</div></div>
@@ -102,6 +112,29 @@ footer .fine{margin-top:14px;font-size:11px;color:#777;line-height:1.7}
 <!-- 3 お買いモノ記事モジュール -->
 <section id="shop">
   <h2>お買いモノ</h2>
+  <article class="shopmod">
+    <span class="prbadge">PR</span>
+    <div class="prnote">この記事には広告（アフィリエイトリンク）が含まれます。※試作中のため、リンクは未設定です。</div>
+    <h3>表参道スナップの着こなしを再現：トレンチ×ニットワンピの同系色コーデ</h3>
+    <p class="ex">縦のラインと同系色で背を高く見せる、秋の定番の組み立て。スナップのアイテム内訳と、再現に使える似たアイテムを紹介します。</p>
+    <div class="dt">2026.11.06 Fri. - 19:00</div>
+    <figure class="shop-photo"><img src="img/snap-mia2-v1.jpg" alt="表参道のトレンチコートのスナップ"><figcaption>写真はAIモデルによる生成画像です（実在の人物ではありません）。</figcaption></figure>
+    <ul class="breakdown">
+      <li>ロングトレンチコート（キャメル）</li>
+      <li>ロングワンピース（クリーム、リブニット）</li>
+      <li>トートバッグ（ベージュ、持ち手は茶）</li>
+      <li>アンクルブーツ（茶、レースアップ、ヒールあり）</li>
+    </ul>
+    <div class="afframe">
+      <div class="aftitle">似たアイテム（再現アイテム）</div>
+      <div class="prods">
+        <div class="prod"><div class="pn">ロングトレンチコート（似たアイテム）</div><div class="pc">丈はふくらはぎ下が基準</div><a class="afbtn" href="#">リンク未設定（試作枠）</a></div>
+        <div class="prod"><div class="pn">リブニットワンピ（似たアイテム）</div><div class="pc">色はクリーム系で揃える</div><a class="afbtn" href="#">リンク未設定（試作枠）</a></div>
+        <div class="prod"><div class="pn">レースアップブーツ（似たアイテム）</div><div class="pc">色はバッグの持ち手に寄せる</div><a class="afbtn" href="#">リンク未設定（試作枠）</a></div>
+      </div>
+      <div class="afnote">掲載アイテムは、このコーデを再現するための「似たアイテム」です。モデルが着用しているブランドの商品ではありません。</div>
+    </div>
+  </article>
   <article class="shopmod">
     <h3>【マイ定番】秋のロングコート、長く着られる一着の選び方</h3>
     <p class="ex">季節の境目にまず羽織るのは、丈の長いコート。骨格別に似合う丈と素材を、スナップで見つけた着こなしから紹介します。</p>
@@ -128,9 +161,9 @@ footer .fine{margin-top:14px;font-size:11px;color:#777;line-height:1.7}
 <section>
   <h2>スナップ ランキング</h2>
   <ol class="rank">
-    <li><span class="no">1</span><img src="img/snap-mia-v1.jpg" alt="1位のスナップ">ツイードジャケット＋ミニスカート（銀座）</li>
-    <li><span class="no">2</span><img src="img/snap-mia2-v1.jpg" alt="2位のスナップ">トレンチコート＋ニットワンピ（表参道）</li>
-    <li><span class="no">3</span><img src="img/snap-b-v1.jpg" alt="3位のスナップ">白シャツ＋レザーミニ（渋谷）</li>
+    <li><span class="no">1</span><a href="coord-1.html"><img src="img/snap-mia-v1.jpg" alt="1位のスナップ">ツイードジャケット＋ミニスカート（銀座）</a></li>
+    <li><span class="no">2</span><a href="coord-2.html"><img src="img/snap-mia2-v1.jpg" alt="2位のスナップ">トレンチコート＋ニットワンピ（表参道）</a></li>
+    <li><span class="no">3</span><a href="coord-3.html"><img src="img/snap-b-v1.jpg" alt="3位のスナップ">白シャツ＋レザーミニ（渋谷）</a></li>
     <li><span class="no">4</span><img src="img/snap-d1-v1.jpg" alt="4位のスナップ">ロングコート＋デニム（丸の内）</li>
     <li><span class="no">5</span><img src="img/snap-c-v1.jpg" alt="5位のスナップ">ニット＋ワイドパンツ（代官山）</li>
     <li><span class="no">6</span><img src="img/snap-b2b-v1.jpg" alt="6位のスナップ">シャツワンピ＋ロングブーツ（自由が丘）</li>
